@@ -1,43 +1,51 @@
+@use 'sass:color'; // Para funciones de color modernas como color.adjust()
 
+// --- Variables SCSS ---
 $primary-blue: #005A9C;
 $white-color: #fff;
-$dark-grey: #333; 
-$light-blue-accent: #61C0FF; 
-$hover-text-light: #E0E0E0;
-$montserrat-font: 'Montserrat', sans-serif; 
+$dark-grey: #333; // Usado principalmente en el footer antiguo, ahora $dark-text-color es más común
+$dark-text-color: #333; // Para texto principal oscuro
+$light-text-color: #555; // Para texto secundario
+$light-blue-accent: #61C0FF; // Para la línea del enlace activo en el menú
+$hover-text-light: #E0E0E0; // Color para hover en enlaces blancos
+$montserrat-font: 'Montserrat', sans-serif; // Asegúrate que Montserrat esté cargada globalmente
+$breakpoint-desktop: 992px; // Punto de quiebre donde el menú cambia a móvil
+$breakpoint-tablet: 768px;  // Punto de quiebre para ajustes en tablets/móviles más pequeños
 
+// --- Estilo Base del Host (si este SCSS es para app.component.scss) ---
 :host {
   display: block;
-  font-family: $montserrat-font; 
+  font-family: $montserrat-font;
 }
 
-
+// --- Encabezado Principal ---
 .app-header {
   background-color: $primary-blue;
-  padding: 15px 0;
+  padding: 10px 0;
   color: $white-color;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  position: sticky; 
+  position: sticky; // Header fijo al hacer scroll
   top: 0;
-  z-index: 1000; 
+  z-index: 1000; // Asegura que esté por encima de otro contenido
 
   .nav-container {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 20px;
+    max-width: 1200px; // Ancho máximo del contenido del header
+    margin: 0 auto; // Centrar el contenido
+    padding: 0 20px; // Padding lateral
   }
 
   .logo {
+    flex-shrink: 0; // Evita que el logo se encoja si no hay espacio
     img {
-      max-height: 50px; 
-      display: block; 
+      max-height: 45px; // Ajusta según el tamaño de tu logo
+      display: block; // Evita espacio extra debajo de la imagen
     }
-    a { 
+    a { // Estilo si el logo es solo texto
       font-family: $montserrat-font;
-      font-size: 1.8rem;
+      font-size: 1.6rem;
       font-weight: bold;
       color: $white-color;
       text-decoration: none;
@@ -45,19 +53,19 @@ $montserrat-font: 'Montserrat', sans-serif;
   }
 
   .main-navigation {
+    // Estilos para el menú de navegación en escritorio
     ul {
       list-style: none;
       padding: 0;
       margin: 0;
       display: flex;
-      align-items: center; 
+      align-items: center;
     }
 
     li {
-      margin-left: 30px; 
-
+      margin-left: 28px;
       &:first-child {
-        margin-left: 0; 
+        margin-left: 0; // El primer ítem no necesita margen izquierdo
       }
     }
 
@@ -65,8 +73,8 @@ $montserrat-font: 'Montserrat', sans-serif;
       font-family: $montserrat-font;
       color: $white-color;
       text-decoration: none;
-      font-size: 1rem;
-      padding: 10px 5px; 
+      font-size: 0.95rem;
+      padding: 8px 0;
       position: relative;
       transition: color 0.3s ease;
 
@@ -74,58 +82,109 @@ $montserrat-font: 'Montserrat', sans-serif;
         color: $hover-text-light;
       }
 
-      &.active-link { 
+      &.active-link { // Estilo para el enlace activo
         font-weight: bold;
-        // color: $light-blue-accent; 
-        &::after { 
+        &::after { // Línea decorativa debajo del enlace activo
           content: '';
           position: absolute;
-          bottom: 0; // O un poco más abajo: -2px;
-          left: 5px; // Coincide con padding lateral
-          right: 5px; // Coincide con padding lateral
+          bottom: -2px;
+          left: 0;
+          right: 0;
           height: 3px;
-          background-color: $light-blue-accent; // Color de la línea
-          border-radius: 1.5px; // Para redondear la línea un poco
+          background-color: $light-blue-accent;
+          border-radius: 1.5px;
         }
+      }
+    }
+
+    // Contenido que solo se muestra en el menú móvil desplegado
+    .mobile-only-items {
+      display: none; // Oculto por defecto, se activa con JS/clase CSS
+      padding-top: 20px;
+      border-top: 1px solid rgba($white-color, 0.2);
+      margin-top: 15px;
+
+      .header-contact-info-mobile,
+      .language-switcher-mobile {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 12px;
+        margin-bottom: 15px;
+        padding-left: 20px; // Para alinear con los links del menú
+        padding-right: 20px;
+
+        .contact-item {
+          display: flex;
+          align-items: center;
+          gap: 8px;
+          font-size: 0.9rem;
+          a {
+            color: $white-color;
+            text-decoration: none;
+            &:hover { text-decoration: underline; }
+          }
+          i { // Estilos para iconos de Bootstrap (ej. <i class="bi bi-telephone"></i>)
+            font-size: 1.1rem; // Ajusta según el tamaño del icono
+            // No es necesario color aquí si los iconos heredan el color del texto
+          }
+        }
+        .lang-button {
+          background-color: transparent;
+          border: 1px solid $white-color;
+          color: $white-color;
+          padding: 6px 12px;
+          cursor: pointer;
+          border-radius: 4px;
+          font-size: 0.9rem;
+          transition: background-color 0.3s ease, color 0.3s ease;
+          font-family: $montserrat-font; // Asegurar fuente
+          &:hover, &.active {
+            background-color: $white-color;
+            color: $primary-blue;
+          }
+        }
+      }
+      .language-switcher-mobile {
+        flex-direction: row;
+        justify-content: flex-start;
+        gap: 10px;
       }
     }
   }
 
-  .header-right-content {
+  // Contenido a la derecha del header para versión de escritorio
+  .header-right-content-desktop {
     display: flex;
     align-items: center;
-    gap: 20px; 
+    gap: 25px;
 
     .header-contact-info {
       display: flex;
       align-items: center;
-      font-size: 0.9rem;
-      gap: 15px; 
+      font-size: 0.85rem;
+      gap: 18px;
 
       .contact-item {
         display: flex;
         align-items: center;
-        gap: 5px; 
-
+        gap: 6px;
+        i { font-size: 1rem; } // Iconos de Bootstrap
         a {
           color: $white-color;
           text-decoration: none;
           transition: color 0.3s ease;
-
           &:hover {
             color: $hover-text-light;
             text-decoration: underline;
           }
         }
-
-        
       }
     }
 
     .language-switcher {
-      display: flex; 
-      gap: 8px; 
-
+      display: flex;
+      gap: 8px;
       .lang-button {
         font-family: $montserrat-font;
         background-color: transparent;
@@ -134,75 +193,197 @@ $montserrat-font: 'Montserrat', sans-serif;
         padding: 6px 12px;
         cursor: pointer;
         border-radius: 4px;
-        font-size: 0.85rem; 
+        font-size: 0.85rem;
         transition: background-color 0.3s ease, color 0.3s ease;
-        line-height: 1; 
+        line-height: 1.2;
 
-        &:hover,
-        &.active { 
+        &:hover, &.active {
           background-color: $white-color;
           color: $primary-blue;
         }
       }
     }
   }
+
+  // Botón para mostrar/ocultar menú en móviles (hamburguesa)
+  .menu-toggle {
+    display: none; // Oculto en escritorio
+    background: none;
+    border: none;
+    color: $white-color;
+    font-size: 1.8rem; // Tamaño del icono (ej. Bootstrap Icons)
+    cursor: pointer;
+    padding: 5px;
+    z-index: 1001; // Para estar encima del menú desplegable
+    line-height: 1; // Ayuda a alinear iconos de fuente
+
+    // Estilos para el icono de hamburguesa hecho con spans (si no usas Bootstrap Icons aquí)
+    .icon-menu { // Contenedor para las barras si usas el método de spans
+      .icon-menu-bars {
+        display: block;
+        width: 22px;
+        height: 2px;
+        background-color: $white-color;
+        margin: 5px 0;
+        transition: all 0.3s ease-in-out;
+      }
+    }
+  }
+
+  // --- Media Queries para el Header (Móvil) ---
+  @media (max-width: ($breakpoint-desktop - 1px)) {
+    .main-navigation { // Estilos del menú cuando se despliega en móvil
+      display: none; // Oculto por defecto
+      flex-direction: column;
+      position: absolute;
+      top: 100%; // Justo debajo del header
+      left: 0;
+      width: 100%;
+      background-color: color.adjust($primary-blue, $lightness: -8%); // Fondo del menú
+      padding: 10px 0;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.15);
+      z-index: 999; // Debajo del header pero encima del contenido principal
+
+      &.active { // Cuando el menú está abierto
+        display: flex !important; // Fuerza la visibilidad
+
+        ul {
+          flex-direction: column;
+          width: 100%;
+        }
+
+        li {
+          margin-left: 0;
+          width: 100%;
+          text-align: left;
+
+          a {
+            padding: 14px 25px;
+            display: block;
+            width: 100%;
+            box-sizing: border-box;
+            border-bottom: 1px solid rgba($white-color, 0.15);
+
+            &.active-link::after {
+              display: none; // No mostrar la línea de activo de escritorio
+            }
+            &:hover {
+              background-color: color.adjust($primary-blue, $lightness: -15%);
+              color: $white-color;
+            }
+          }
+          &:last-child a {
+            border-bottom: none;
+          }
+        }
+        .mobile-only-items { // Mostrar estos items en el menú móvil
+          display: block !important; // Fuerza la visibilidad
+        }
+      }
+    }
+
+    .header-right-content-desktop { // Ocultar la info de contacto de escritorio
+      display: none;
+    }
+
+    .menu-toggle { // Mostrar el botón hamburguesa
+      display: block;
+    }
+  }
+
+  @media (max-width: ($breakpoint-tablet - 1px)) { // Ajustes para móviles más pequeños
+    .nav-container {
+      padding: 0 15px;
+    }
+    .logo img {
+      max-height: 40px;
+    }
+    .logo a {
+      font-size: 1.5rem;
+    }
+  }
 }
 
-.site-footer {
-  background-color: $primary-blue; 
-  color: $white-color;
-  padding: 40px 20px; 
-  text-align: center;
-  margin-top: 40px; 
+// Animación del icono hamburguesa a X (si .menu-toggle tiene la clase 'open')
+.menu-toggle.open .icon-menu { // Asume [class.open]="menuAbierto" en el botón
+  .icon-menu-bars:nth-child(1) {
+    transform: translateY(7px) rotate(45deg);
+  }
+  .icon-menu-bars:nth-child(2) {
+    opacity: 0;
+  }
+  .icon-menu-bars:nth-child(3) {
+    transform: translateY(-7px) rotate(-45deg);
+  }
+}
 
-  .container.footer-content { 
+
+// --- Pie de Página ---
+.site-footer {
+  background-color: $primary-blue;
+  color: $white-color;
+  padding: 40px 20px;
+  text-align: center;
+
+  .container.footer-content {
     max-width: 1100px;
     margin: 0 auto;
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 25px; 
-    .footer-contents{
-      display: flex;
-          justify-content: space-between;
-          align-items: center;
-          width: 100%;
-    }
+    gap: 25px;
   }
- 
+.footer-contents{
+  width: 100%;
+  display: flex;
+  gap: 25px;
+  align-items: center;
+  justify-content: center;
+}
   .footer-logo {
     img {
-      max-height: 60px; 
+      max-height: 60px;
       display: block;
     }
   }
 
   .social-links {
     display: flex;
-    gap: 20px; 
+    gap: 20px;
 
-    .social-icon {
-      width: 40px; 
+    .social-icon { // Este es el div que contiene la imagen del icono social
+      width: 40px;
       height: 40px;
       border-radius: 50%;
-      background-color: $white-color; 
+      // background-color: $white-color; // Puede no ser necesario si la imagen ya tiene fondo
       display: flex;
       justify-content: center;
       align-items: center;
-      font-size: 1.2rem; 
       transition: transform 0.3s ease, opacity 0.3s ease;
+      text-decoration: none;
 
-      &.facebook { color: #1877F2; } 
-      &.instagram { color: transparent; } 
-
-      &.instagram { 
-        background: linear-gradient(45deg, #405DE6, #5851DB, #833AB4, #C13584, #E1306C, #FD1D1D);
-        i { color: $white-color; } 
+      img { // Si usas etiquetas <img> para los iconos sociales
+        width: 100%; // O un tamaño fijo como 30px
+        height: 100%; // O un tamaño fijo como 30px
+        object-fit: contain; // Para que no se deforme
       }
+
+      // Si usaras iconos de fuente (ej. <i class="bi bi-facebook"></i>) dentro de este div:
+      // i {
+      //   font-size: 1.5rem; // Tamaño del icono de fuente
+      //   color: $primary-blue; // Color del icono si el fondo del .social-icon es blanco
+      // }
+      // &.facebook i { color: #1877F2; }
+      // &.instagram i { color: $white-color; } // Si el fondo del .social-icon es el degradado
+
+      // Si el .social-icon es el que tiene el color/fondo de la marca:
+      &.facebook { background-color: #1877F2; /* Si quieres el círculo con color de marca */ }
+      &.instagram { background: linear-gradient(45deg, #405DE6, #5851DB, #833AB4, #C13584, #E1306C, #FD1D1D); }
+
 
       &:hover {
         opacity: 0.85;
-        transform: scale(1.1); 
+        transform: scale(1.1);
       }
     }
   }
@@ -215,65 +396,86 @@ $montserrat-font: 'Montserrat', sans-serif;
       opacity: 0.8;
     }
   }
-}
 
+  // Media query para el footer en móviles
+  @media (max-width: ($breakpoint-tablet - 1px)) {
+    // Si quieres que los elementos del footer (logo, redes, copyright) se pongan en fila en móvil
+    // .container.footer-content {
+    //   .footer-contents { // Necesitarías este div wrapper en tu HTML del footer
+    //     display: flex;
+    //     flex-direction: row;
+    //     justify-content: space-between;
+    //     align-items: center;
+    //     width: 100%;
+    //     flex-wrap: wrap; // Para que se apilen si no caben
+    //     gap: 15px;
+    //   }
+    // }
 
-
-@media (max-width: 992px) { 
-  .app-header {
-    .main-navigation {
-      display: none;
-    }
-
-    .header-right-content {
-      .header-contact-info {
-        display: none; 
-      }
-    }
-  }
-}
-
-@media (max-width: 768px) { 
-  .app-header {
-    padding: 10px 0; 
-
-    .nav-container {
-      flex-direction: row; 
-      justify-content: space-between; 
-      padding: 0 15px;
-    }
-
-    .logo img {
-      max-height: 40px; // Logo más pequeño
-    }
-    .logo a {
-      font-size: 1.5rem;
-    }
-
-    
-    }
-  }
-
-  .site-footer {
-    
-    padding: 30px 15px;
-    .container.footer-content {
-      gap: 20px;
-      justify-content: space-between;
-      align-items: center;
-      width: 100%;
-     
-    }
-    .container.footer-content.footer-contents{
-      display: flex;
-         
-    }
     .footer-logo img {
       max-height: 45px;
     }
     .social-links .social-icon {
       width: 35px;
       height: 35px;
-      font-size: 1rem;
+      img { width: 25px; height: 25px; } // Ajustar si las imágenes de iconos son más pequeñas
+      // i { font-size: 1rem; } // Si usas iconos de fuente
     }
   }
+}
+
+main {
+  display: block; 
+  min-height: calc(100vh - 65px - 150px); 
+  box-sizing: border-box;
+
+  @media (max-width: ($breakpoint-desktop - 1px)) {
+  }
+
+}
+
+// ... (tus variables y otros estilos existentes) ...
+
+// --- Estilos para el Botón Flotante de WhatsApp ---
+.floating-whatsapp-button {
+  position: fixed; // Posición fija en la pantalla
+  bottom: 25px;    // Distancia desde abajo
+  right: 25px;     // Distancia desde la derecha
+  width: 60px;     // Ancho del botón
+  height: 60px;    // Alto del botón
+  background-color: #25D366; // Color verde de WhatsApp
+  color: $white-color;        // Color del icono (SVG fill="currentColor" lo tomará)
+  border-radius: 50%;      // Hacerlo circular
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2); // Sombra para destacar
+  z-index: 1050; // Asegura que esté por encima de la mayoría de los elementos
+  transition: transform 0.3s ease, background-color 0.3s ease;
+  text-decoration: none; // Quitar subrayado del enlace
+
+  svg { // Estilos para el SVG si es necesario (ya tiene fill="currentColor")
+    width: 32px;  // Tamaño del icono SVG interno
+    height: 32px; // Tamaño del icono SVG interno
+  }
+
+  &:hover {
+    background-color: color.adjust(#25D366, $lightness: -8%); // Un verde un poco más oscuro al pasar el cursor
+    transform: scale(1.1); // Ligeramente más grande al pasar el cursor
+  }
+}
+
+// Opcional: Ajustes para pantallas pequeñas si el botón es muy grande
+@media (max-width: ($breakpoint-tablet - 1px)) { // $breakpoint-tablet debería ser ~768px
+  .floating-whatsapp-button {
+    width: 50px;
+    height: 50px;
+    bottom: 20px;
+    right: 20px;
+
+    svg {
+      width: 28px;
+      height: 28px;
+    }
+  }
+}
