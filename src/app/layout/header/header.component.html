@@ -1,0 +1,57 @@
+<header class="app-header">
+    <div class="container nav-container">
+      <div class="logo">
+        <a routerLink="/">
+          <img src="/assets/images/sadalclean-logo-menu.png" alt="{{ 'COMPANY_INFO.NAME' | translate }} Logo">
+        </a>
+      </div>
+  
+      <nav class="main-navigation" [class.active]="menuAbierto">
+        <ul>
+          <li><a routerLink="/" routerLinkActive="active-link" [routerLinkActiveOptions]="{exact: true}" (click)="cerrarMenu()">{{ 'MENU.HOME' | translate }}</a></li>
+          <li><a routerLink="/services" routerLinkActive="active-link" (click)="cerrarMenu()">{{ 'MENU.SERVICES' | translate }}</a></li>
+          <li><a routerLink="/about-us" routerLinkActive="active-link" (click)="cerrarMenu()">{{ 'MENU.ABOUT_US' | translate }}</a></li>
+          <li><a routerLink="/gallery" routerLinkActive="active-link" (click)="cerrarMenu()">{{ 'MENU.GALLERY' | translate }}</a></li>
+          <li><a routerLink="/contact" routerLinkActive="active-link" (click)="cerrarMenu()">{{ 'MENU.CONTACT' | translate }}</a></li>
+        </ul>
+        <div class="mobile-only-items">
+          <div class="header-contact-info-mobile">
+            <span class="contact-item">
+              <i class="bi bi-telephone-fill"></i>
+              <a href="tel:{{ 'CONTACT_INFO_SHARED.PHONE_1' | translate }}">{{ 'CONTACT_INFO_SHARED.PHONE_1' | translate }}</a>
+            </span>
+            <span class="contact-item">
+              <i class="bi bi-envelope-fill"></i>
+              <a href="mailto:{{ 'CONTACT_INFO_SHARED.EMAIL_ADDRESS' | translate }}">{{ 'CONTACT_INFO_SHARED.EMAIL_ADDRESS' | translate }}</a>
+            </span>
+          </div>
+          <div class="language-switcher-mobile">
+            <button (click)="switchLanguage('en'); cerrarMenu()" class="lang-button" [class.active]="translate.currentLang === 'en'">ENG</button>
+            <button (click)="switchLanguage('es'); cerrarMenu()" class="lang-button" [class.active]="translate.currentLang === 'es'">ESP</button>
+          </div>
+        </div>
+      </nav>
+  
+      <div class="header-right-content-desktop">
+        <div class="header-contact-info">
+          <span class="contact-item">
+            <i class="bi bi-telephone-fill"></i>
+            <a href="tel:{{ 'CONTACT_INFO_SHARED.PHONE_1' | translate }}">{{ 'CONTACT_INFO_SHARED.PHONE_1' | translate }}</a>
+          </span>
+          <span class="contact-item">
+            <i class="bi bi-envelope-fill"></i>
+            <a href="mailto:{{ 'CONTACT_INFO_SHARED.EMAIL_ADDRESS' | translate }}">{{ 'CONTACT_INFO_SHARED.EMAIL_ADDRESS' | translate }}</a>
+          </span>
+        </div>
+        <div class="language-switcher">
+          <button (click)="switchLanguage('en')" class="lang-button" [class.active]="translate.currentLang === 'en'">ENG</button>
+          <button (click)="switchLanguage('es')" class="lang-button" [class.active]="translate.currentLang === 'es'">ESP</button>
+        </div>
+      </div>
+  
+      <button class="menu-toggle" (click)="toggleMenu()" aria-label="Toggle menu" [class.open]="menuAbierto">
+        <i class="bi" [ngClass]="{'bi-x-lg': menuAbierto, 'bi-list': !menuAbierto}"></i>
+      </button>
+    </div>
+  </header>
+  

@@ -1,67 +1,8 @@
-<header class="app-header">
-  <div class="container nav-container">
-    <div class="logo">
-      <a routerLink="/">
-        <img src="/assets/images/sadalclean-logo-menu.png" alt="{{ 'COMPANY_INFO.NAME' | translate }} Logo">
-      </a>
-    </div>
+<app-header></app-header>
 
-    <nav class="main-navigation" [class.active]="menuAbierto"> <ul>
-        <li><a routerLink="/" routerLinkActive="active-link" [routerLinkActiveOptions]="{exact: true}" (click)="cerrarMenu()">{{ 'MENU.HOME' | translate }}</a></li>
-        <li><a routerLink="/services" routerLinkActive="active-link" (click)="cerrarMenu()">{{ 'MENU.SERVICES' | translate }}</a></li>
-        <li><a routerLink="/about-us" routerLinkActive="active-link" (click)="cerrarMenu()">{{ 'MENU.ABOUT_US' | translate }}</a></li>
-        <li><a routerLink="/gallery" routerLinkActive="active-link" (click)="cerrarMenu()">{{ 'MENU.GALLERY' | translate }}</a></li>
-        <li><a routerLink="/contact" routerLinkActive="active-link" (click)="cerrarMenu()">{{ 'MENU.CONTACT' | translate }}</a></li>
-      </ul>
-      <div class="mobile-only-items">
-        <div class="header-contact-info-mobile">
-          <span class="contact-item">
-            <i class="icon-phone"></i>
-            <a href="tel:{{ 'CONTACT_INFO_SHARED.PHONE_1' | translate }}">{{ 'CONTACT_INFO_SHARED.PHONE_1' | translate }}</a>
-          </span>
-          <span class="contact-item">
-            <i class="icon-email"></i>
-            <a href="mailto:{{ 'CONTACT_INFO_SHARED.EMAIL_ADDRESS' | translate }}">{{ 'CONTACT_INFO_SHARED.EMAIL_ADDRESS' | translate }}</a>
-          </span>
-        </div>
-        <div class="language-switcher-mobile">
-          <button (click)="switchLanguage('en'); cerrarMenu()" class="lang-button" [class.active]="translate.currentLang === 'en'">ENG</button>
-          <button (click)="switchLanguage('es'); cerrarMenu()" class="lang-button" [class.active]="translate.currentLang === 'es'">ESP</button>
-        </div>
-      </div>
-    </nav>
-
-  
-    <div class="header-right-content-desktop"> <div class="header-contact-info">
-        <span class="contact-item">
-          <i class="icon-phone"></i>
-          <a href="tel:{{ 'CONTACT_INFO_SHARED.PHONE_1' | translate }}">{{ 'CONTACT_INFO_SHARED.PHONE_1' | translate }}</a>
-        </span>
-        <span class="contact-item">
-          <i class="icon-email"></i>
-          <a href="mailto:{{ 'CONTACT_INFO_SHARED.EMAIL_ADDRESS' | translate }}">{{ 'CONTACT_INFO_SHARED.EMAIL_ADDRESS' | translate }}</a>
-        </span>
-      </div>
-      <div class="language-switcher">
-        <button (click)="switchLanguage('en')" class="lang-button" [class.active]="translate.currentLang === 'en'">ENG</button>
-        <button (click)="switchLanguage('es')" class="lang-button" [class.active]="translate.currentLang === 'es'">ESP</button>
-      </div>
-    </div>
-
-    <button class="menu-toggle" (click)="toggleMenu()" aria-label="Toggle menu">
-      <div *ngIf="!menuAbierto">
-        <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-list" viewBox="0 0 16 16">
-          <path fill-rule="evenodd" d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5"/>
-        </svg>
-      </div>
-      <div *ngIf="menuAbierto">
-        <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-list-nested" viewBox="0 0 16 16">
-          <path fill-rule="evenodd" d="M4.5 11.5A.5.5 0 0 1 5 11h10a.5.5 0 0 1 0 1H5a.5.5 0 0 1-.5-.5m-2-4A.5.5 0 0 1 3 7h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5m-2-4A.5.5 0 0 1 1 3h10a.5.5 0 0 1 0 1H1a.5.5 0 0 1-.5-.5"/>
-        </svg>
-      </div>
-    </button>
-  </div>
-</header>
+<main>
+  <router-outlet></router-outlet>
+</main>
 
 <a [href]="whatsappLink" target="_blank" class="floating-whatsapp-button" aria-label="Chat on WhatsApp">
   <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" class="bi bi-whatsapp" viewBox="0 0 16 16">
@@ -69,24 +10,4 @@
   </svg>
 </a>
 
-
-<main>
-  <router-outlet></router-outlet>
-</main>
-
-<footer class="site-footer">
-  <div class="container footer-content">
-   <div class="footer-contents">
-    <div class="footer-logo">
-      <img src="/assets/images/licencia.png" alt="{{ 'COMPANY_INFO.NAME' | translate }} Logo">
-    </div>
-    <div class="social-links">
-      <a href="https://www.facebook.com/sadalclean" target="_blank" aria-label="Facebook"><div class="social-icon facebook"><img src="/assets/images/facebook.png" style="width: 40px;" alt=""></div></a>
-      <a href="https://www.instagram.com/sadalclean/" target="_blank" aria-label="Instagram"><div class="social-icon instagram"><img src="/assets/images/instagram.png" style="width: 40px;" alt=""></div></a>
-      </div>
-   </div>
-    <div class="copyright">
-      <p>&copy; {{ currentYear }} {{ 'COMPANY_INFO.NAME' | translate }}. {{ 'FOOTER.COPYRIGHT_TEXT' | translate }}.</p>
-    </div>
-  </div>
-</footer>
+<app-footer></app-footer>
