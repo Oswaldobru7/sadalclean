@@ -1,0 +1,116 @@
+{
+  "COMPANY_INFO": {
+    "NAME": "SADAL CLEAN",
+    "DESCRIPTION_FULL": "SADAL CLEAN es una empresa de limpieza ubicada en Wesley Chapel, Florida, dedicada a brindar servicios profesionales, confiables y detallados. Ofrecemos limpieza residencial, comercial, de oficinas y profunda. Nuestro enfoque es la calidad, puntualidad y confianza con cada cliente.",
+    "LOCATION": "Wesley Chapel, Florida",
+    "FOCUS_STATEMENT": "Nuestro enfoque es la calidad, puntualidad y confianza con cada cliente."
+  },
+  "MENU": {
+    "HOME": "Inicio",
+    "SERVICES": "Servicios",
+    "ABOUT_US": "Sobre Nosotros",
+    "GALLERY": "Galería",
+    "CONTACT": "Contacto"
+  },
+  "HOME_PAGE": {
+    "HERO_TITLE": "¡El Mejor Servicio de Limpieza en la Ciudad!",
+    "HERO_SUBTITLE": "Limpieza profesional, confiable y detallada para su hogar y oficina en Wesley Chapel, FL.",
+    "HERO_BUTTON_TEXT": "Contáctanos Hoy",
+    "SERVICES_OVERVIEW_TITLE": "Nuestros Servicios Principales",
+    "WELCOME_SECTION": {
+      "PRE_TITLE": "BIENVENIDOS A SADAL CLEAN",
+      "TITLE": "Su Socio de Limpieza de Confianza en Wesley Chapel",
+      "BUTTON_TEXT": "Conozca Más Sobre Nosotros"
+    },
+    "WHY_CHOOSE_US_SECTION": {
+      "TITLE": "Nuestros Servicios de Limpieza Completos",
+      "RESIDENTIAL_TITLE": "Limpieza Residencial",
+      "COMMERCIAL_TITLE": "Limpieza Comercial",
+      "OFFICE_TITLE": "Limpieza de Oficinas",
+      "DEEP_CLEANING_TITLE": "Limpieza Profunda"
+    },
+    "CTA_SECTION": {
+      "TITLE": "¿Listo para un Espacio Impecable?",
+      "TEXT": "Deje que SadalClean se encargue de la limpieza para que usted pueda concentrarse en lo que más importa. ¡Contáctenos hoy para una cotización gratuita y sin compromiso!",
+      "BUTTON_TEXT": "Obtener Cotización Gratis"
+    }
+  },
+  "SERVICES_PAGE_CONTENT": {
+    "PAGE_TITLE": "Nuestros Servicios",
+    "PAGE_SUBTITLE": "Descubra nuestra gama de soluciones de limpieza profesional adaptadas a sus necesidades.",
+    "RESIDENTIAL": {
+      "TITLE": "Limpieza Residencial",
+      "DETAIL": "Limpieza detallada de casas y apartamentos. Incluye baños, cocinas, salas, habitaciones y más."
+    },
+    "COMMERCIAL": {
+      "TITLE": "Limpieza Comercial",
+      "DETAIL": "Para locales, tiendas y espacios comerciales. Limpieza regular y profunda, según tus necesidades."
+    },
+    "OFFICE": {
+      "TITLE": "Limpieza de Oficinas",
+      "DETAIL": "Mantenimiento de oficinas limpias y desinfectadas. Ideal para ambientes laborales organizados."
+    },
+    "DEEP_CLEANING": {
+      "TITLE": "Limpieza Profunda",
+      "DETAIL": "Limpieza intensiva en cada rincón. Perfecta para mudanzas, limpiezas de temporada o después de remodelaciones."
+    }
+  },
+  "ABOUT_US_PAGE": {
+    "PAGE_HEADER_TITLE": "Sobre SADAL CLEAN",
+    "PAGE_HEADER_SUBTITLE": "Conozca más sobre nuestra dedicación a la limpieza y la satisfacción del cliente.",
+    "WHO_WE_ARE_PRE_TITLE": "¿QUIÉNES SOMOS?",
+    "WHO_WE_ARE_TITLE": "Sus Expertos de Confianza en Limpieza",
+    "VALUES_SECTION_TITLE": "Nuestros Valores Fundamentales",
+    "VALUE_QUALITY_TITLE": "Calidad Insuperable",
+    "VALUE_QUALITY_TEXT": "Estamos comprometidos a ofrecer el más alto estándar de limpieza con atención a cada detalle.",
+    "VALUE_PUNCTUALITY_TITLE": "Puntualidad y Confiabilidad",
+    "VALUE_PUNCTUALITY_TEXT": "Su tiempo es valioso. Nos enorgullecemos de ser puntuales y confiables en cada cita.",
+    "VALUE_TRUST_TITLE": "Construyendo Confianza",
+    "VALUE_TRUST_TEXT": "Construimos relaciones duraderas basadas en la transparencia, integridad y resultados consistentes.",
+    "MISSION_TITLE": "Nuestra Misión",
+    "MISSION_TEXT": "Proveer servicios de limpieza excepcionales que creen ambientes saludables, cómodos y productivos para nuestros clientes en Wesley Chapel y áreas circundantes.",
+    "VISION_TITLE": "Nuestra Visión",
+    "VISION_TEXT": "Ser el proveedor de servicios de limpieza líder y más confiable en nuestra comunidad, reconocido por nuestra excelencia, confiabilidad y enfoque centrado en el cliente.",
+    "CTA_TITLE": "¿Listo para Experimentar la Diferencia SADAL CLEAN?",
+    "CTA_TEXT": "Permítanos encargarnos de sus necesidades de limpieza con profesionalismo y esmero."
+  },
+  "GALLERY_PAGE": {
+    "PAGE_TITLE": "Galería y Testimonios",
+    "GALLERY_INTRO": "Vea la calidad de nuestro trabajo usted mismo. Aquí hay algunos ejemplos de nuestros servicios de limpieza.",
+    "TESTIMONIALS_TITLE": "Lo que Dicen Nuestros Clientes",
+    "TESTIMONIAL_1_TEXT": "\"¡SADAL CLEAN hizo un trabajo increíble! Mi casa nunca ha estado más limpia.\" - Un Cliente Feliz (Por favor, proporcione testimonios reales)",
+    "TESTIMONIAL_1_AUTHOR": "Cliente Satisfecho"
+  },
+  "CONTACT_PAGE": {
+    "PAGE_TITLE": "Contáctanos",
+    "GET_IN_TOUCH_TITLE": "Ponte en Contacto",
+    "GET_IN_TOUCH_SUBTITLE": "¡Nos encantaría saber de ti! Completa el formulario a continuación o contáctanos directamente.",
+    "FORM_NAME_LABEL": "Nombre Completo",
+    "FORM_EMAIL_LABEL": "Correo Electrónico",
+    "FORM_PHONE_LABEL": "Número de Teléfono (Opcional)",
+    "FORM_SERVICE_LABEL": "Servicio de Interés",
+    "FORM_MESSAGE_LABEL": "Tu Mensaje",
+    "FORM_SUBMIT_BUTTON": "Enviar Mensaje",
+    "OTHER_CONTACT_METHODS_TITLE": "Otras Formas de Contactarnos",
+    "DIRECT_PHONE_LABEL_KEY": "CONTACT_INFO_SHARED.GENERAL_PHONE_LABEL",
+    "DIRECT_EMAIL_LABEL_KEY": "CONTACT_INFO_SHARED.GENERAL_EMAIL_LABEL",
+    "SOCIAL_MEDIA_TITLE": "Síguenos en Redes Sociales"
+  },
+  "BUTTONS": {
+    "READ_MORE": "Leer Más",
+    "CONTACT_US": "Contáctanos",
+    "SUBMIT": "Enviar",
+    "CONTACT_US_FOR_SERVICE": "Solicitar Este Servicio"
+  },
+  "CONTACT_INFO_SHARED": {
+    "GENERAL_PHONE_LABEL": "Teléfono",
+    "PHONE_1": "813-770-9022",
+    "PHONE_2": "305-725-5111",
+    "GENERAL_EMAIL_LABEL": "Correo",
+    "EMAIL_ADDRESS": "sadalclean0710@gmail.com",
+    "WHATSAPP_LABEL": "WhatsApp"
+  },
+  "FOOTER":{
+    "COPYRIGHT_TEXT": "Todos los derechos reservados"
+  }
+}

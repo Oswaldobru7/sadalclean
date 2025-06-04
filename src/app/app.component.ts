@@ -1,12 +1,30 @@
+// src/app/app.component.ts
 import { Component } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
+import { RouterModule } from '@angular/router';
+import { TranslateModule, TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet],
+  standalone: true,
+  imports: [
+    RouterModule,
+    TranslateModule
+  ],
   templateUrl: './app.component.html',
-  styleUrl: './app.component.scss'
+  styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'sadalclean';
+  currentYear: number = new Date().getFullYear();
+
+  constructor(public translate: TranslateService) {
+    translate.setDefaultLang('en');
+    const browserLang = translate.getBrowserLang();
+    const supportedLang = browserLang?.match(/en|es/) ? browserLang : 'en';
+    translate.setDefaultLang('en'); 
+    translate.use('en');   
+  }
+
+  switchLanguage(lang: string): void {
+    this.translate.use(lang);
+  }
 }

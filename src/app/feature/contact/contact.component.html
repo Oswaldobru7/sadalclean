@@ -1,0 +1,67 @@
+<div class="contact-page">
+    <div class="container page-header-container">
+      <h1>{{ 'CONTACT_PAGE.PAGE_TITLE' | translate }}</h1>
+      <p class="page-header-subtitle">{{ 'CONTACT_PAGE.GET_IN_TOUCH_SUBTITLE' | translate }}</p>
+    </div>
+  
+    <section class="contact-form-section">
+      <div class="container contact-form-container">
+        <h2>{{ 'CONTACT_PAGE.GET_IN_TOUCH_TITLE' | translate }}</h2>
+        <form #contactForm="ngForm" (ngSubmit)="onSubmit(contactForm)">
+          <div class="form-group">
+            <label for="name">{{ 'CONTACT_PAGE.FORM_NAME_LABEL' | translate }}</label>
+            <input type="text" id="name" name="name" ngModel required>
+          </div>
+          <div class="form-group">
+            <label for="email">{{ 'CONTACT_PAGE.FORM_EMAIL_LABEL' | translate }}</label>
+            <input type="email" id="email" name="email" ngModel required email>
+          </div>
+          <div class="form-group">
+            <label for="phone">{{ 'CONTACT_PAGE.FORM_PHONE_LABEL' | translate }}</label>
+            <input type="tel" id="phone" name="phone" ngModel>
+          </div>
+          <div class="form-group">
+            <label for="service">{{ 'CONTACT_PAGE.FORM_SERVICE_LABEL' | translate }}</label>
+            <select id="service" name="service" ngModel>
+              <option value="residential">{{ 'SERVICES_PAGE_CONTENT.RESIDENTIAL.TITLE' | translate }}</option>
+              <option value="commercial">{{ 'SERVICES_PAGE_CONTENT.COMMERCIAL.TITLE' | translate }}</option>
+              <option value="office">{{ 'SERVICES_PAGE_CONTENT.OFFICE.TITLE' | translate }}</option>
+              <option value="deep">{{ 'SERVICES_PAGE_CONTENT.DEEP_CLEANING.TITLE' | translate }}</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="message">{{ 'CONTACT_PAGE.FORM_MESSAGE_LABEL' | translate }}</label>
+            <textarea id="message" name="message" rows="5" ngModel required></textarea>
+          </div>
+          <button type="submit" class="submit-button">{{ 'CONTACT_PAGE.FORM_SUBMIT_BUTTON' | translate }}</button>
+        </form>
+      </div>
+    </section>
+  
+    <section class="contact-info-section">
+      <div class="container contact-info-container">
+        <h2>{{ 'CONTACT_PAGE.OTHER_CONTACT_METHODS_TITLE' | translate }}</h2>
+        <div class="contact-details">
+          <div class="contact-item">
+            <div class="contact-icon">[ICONO TELÉFONO]</div>
+            <p><strong>{{ 'CONTACT_INFO_SHARED.GENERAL_PHONE_LABEL' | translate }}:</strong> <a href="tel:{{ 'CONTACT_INFO_SHARED.PHONE_1' | translate }}">{{ 'CONTACT_INFO_SHARED.PHONE_1' | translate }}</a> / <a href="tel:{{ 'CONTACT_INFO_SHARED.PHONE_2' | translate }}">{{ 'CONTACT_INFO_SHARED.PHONE_2' | translate }}</a></p>
+          </div>
+          <div class="contact-item">
+            <div class="contact-icon">[ICONO EMAIL]</div>
+            <p><strong>{{ 'CONTACT_INFO_SHARED.GENERAL_EMAIL_LABEL' | translate }}:</strong> <a href="mailto:{{ 'CONTACT_INFO_SHARED.EMAIL_ADDRESS' | translate }}">{{ 'CONTACT_INFO_SHARED.EMAIL_ADDRESS' | translate }}</a></p>
+          </div>
+          <div class="contact-item">
+            <div class="contact-icon">[ICONO WHATSAPP]</div>
+            <p><strong>WhatsApp:</strong> <a href="https://wa.me/TU_NUMERO_DE_WHATSAPP" target="_blank">¡Chatea con nosotros!</a></p>
+          </div>
+        </div>
+        <div class="social-media">
+          <h3>{{ 'CONTACT_PAGE.SOCIAL_MEDIA_TITLE' | translate }}</h3>
+          <div class="social-icons">
+            <a href="TU_LINK_FACEBOOK" target="_blank" aria-label="Facebook"><div class="social-icon facebook">[ICONO FACEBOOK]</div></a>
+            <a href="TU_LINK_INSTAGRAM" target="_blank" aria-label="Instagram"><div class="social-icon instagram">[ICONO INSTAGRAM]</div></a>
+            </div>
+        </div>
+      </div>
+    </section>
+  </div>

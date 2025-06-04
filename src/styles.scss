@@ -1,1 +1,27 @@
 /* You can add global styles to this file, and also import other style files */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&display=swap');
+/* src/styles.css */
+/* Si usaste @import, ya está arriba */
+
+body {
+    font-family: 'Montserrat', sans-serif; /* Establece Montserrat como fuente principal */
+    margin: 0; /* Es bueno resetear el margen del body también */
+    padding: 0;
+    /* Puedes añadir más estilos base para el body aquí, como el color de texto por defecto */
+    /* color: #333; */
+  }
+  
+  /* También puedes definirla en html para asegurar mayor cobertura */
+  html {
+    font-family: 'Montserrat', sans-serif;
+  }
+  
+  /* Puedes definirla también para encabezados, botones, etc., si quieres ser específico */
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Montserrat', sans-serif;
+    /* Puedes ajustar el font-weight aquí si es necesario */
+  }
+  
+  button, input, select, textarea {
+    font-family: 'Montserrat', sans-serif;
+  }

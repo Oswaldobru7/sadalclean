@@ -1,0 +1,202 @@
+// src/app/feature/contact/contact.component.scss
+
+// Importa tus variables SCSS
+// @import 'path/to/your/variables';
+
+$primary-blue: #005A9C;
+$dark-text-color: #333;
+$light-text-color: #555;
+$montserrat-font: 'Montserrat', sans-serif;
+$white-color: #fff;
+$border-radius-std: 8px;
+$box-shadow-std: 0 4px 10px rgba(0, 0, 0, 0.08);
+
+.contact-page {
+  font-family: $montserrat-font;
+  color: $light-text-color;
+
+  .page-header-container {
+    text-align: center;
+    padding: 50px 20px;
+    background-color: $white-color;
+
+    h1 {
+      font-size: 2.8rem;
+      color: $dark-text-color;
+      margin-bottom: 10px;
+      font-weight: 700;
+    }
+    .page-header-subtitle {
+      font-size: 1.1rem;
+      max-width: 700px;
+      margin: 0 auto;
+      line-height: 1.6;
+    }
+  }
+
+  .contact-form-section {
+    padding: 60px 20px;
+    background-color: #f9f9f9;
+
+    .contact-form-container {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 30px;
+      background-color: $white-color;
+      border-radius: $border-radius-std;
+      box-shadow: $box-shadow-std;
+
+      h2 {
+        font-size: 2rem;
+        color: $primary-blue;
+        margin-bottom: 30px;
+        text-align: center;
+        font-weight: 700;
+      }
+
+      form {
+        display: flex;
+        flex-direction: column;
+
+        .form-group {
+          margin-bottom: 20px;
+
+          label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+            color: $dark-text-color;
+          }
+
+          input,
+          textarea,
+          select {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: $border-radius-std;
+            box-sizing: border-box;
+            font-family: inherit;
+            font-size: 1rem;
+
+            &:focus {
+              outline: none;
+              border-color: $primary-blue;
+              box-shadow: 0 0 5px rgba($primary-blue, 0.3);
+            }
+          }
+
+          textarea {
+            resize: vertical;
+          }
+
+          select {
+            appearance: none;
+            background-image: url('data:image/svg+xml;charset=UTF-8,<svg fill="%23343a40" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');
+            background-repeat: no-repeat;
+            background-position: right 12px center;
+            background-size: 16px 12px;
+          }
+        }
+
+        .submit-button {
+          background-color: $primary-blue;
+          color: $white-color;
+          padding: 12px 25px;
+          border: none;
+          border-radius: 50px;
+          font-size: 1.1rem;
+          cursor: pointer;
+          transition: background-color 0.3s ease;
+
+          &:hover {
+            background-color: darken($primary-blue, 10%);
+          }
+        }
+      }
+    }
+  }
+
+  .contact-info-section {
+    padding: 60px 20px;
+    background-color: $white-color;
+    text-align: center;
+
+    .contact-info-container {
+      max-width: 900px;
+      margin: 0 auto;
+
+      h2 {
+        font-size: 2rem;
+        color: $dark-text-color;
+        margin-bottom: 30px;
+        font-weight: 700;
+      }
+
+      .contact-details {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 30px;
+        margin-bottom: 40px;
+        text-align: left;
+
+        .contact-item {
+          display: flex;
+          align-items: center;
+          gap: 15px;
+
+          .contact-icon {
+            font-size: 1.5rem; // Ajusta el tamaño del icono
+            color: $primary-blue;
+          }
+
+          p {
+            margin-bottom: 0;
+            a {
+              color: $light-text-color;
+              text-decoration: none;
+              &:hover {
+                text-decoration: underline;
+              }
+            }
+          }
+        }
+      }
+
+      .social-media {
+        h3 {
+          font-size: 1.5rem;
+          color: $dark-text-color;
+          margin-bottom: 20px;
+          font-weight: 600;
+        }
+        .social-icons {
+          display: flex;
+          justify-content: center;
+          gap: 20px;
+
+          .social-icon {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background-color: $primary-blue;
+            color: $white-color;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 1.2rem;
+            transition: background-color 0.3s ease;
+
+            &.facebook { background-color: #1877F2; }
+            &.instagram { background: linear-gradient(45deg, #405DE6, #5851DB, #833AB4, #C13584, #E1306C, #FD1D1D); }
+            // Agrega más estilos para otras redes sociales
+
+            &:hover {
+              opacity: 0.8;
+            }
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,222 @@
+// src/app/feature/about-us/about-us.component.scss
+
+// Importa tus variables SCSS si las tienes
+// @import 'path/to/your/variables';
+
+// Variables (si no las importas, defínelas o ajústalas)
+$primary-blue: #005A9C;
+$dark-text-color: #333;
+$light-text-color: #555;
+$montserrat-font: 'Montserrat', sans-serif;
+$section-bg-light: #f8f9fa;
+$white-color: #fff;
+$border-radius-std: 8px;
+
+.about-us-page {
+  font-family: $montserrat-font;
+  color: $light-text-color;
+
+  .container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 20px;
+  }
+
+  // Encabezado de Página
+  .page-title-section {
+    padding: 50px 20px 40px;
+    background-color: $primary-blue; // O un degradado, o una imagen sutil
+    color: $white-color;
+    text-align: center;
+
+    h1 {
+      font-size: 2.8rem;
+      margin-bottom: 10px;
+      font-weight: 700;
+    }
+    .page-header-subtitle {
+      font-size: 1.2rem;
+      opacity: 0.9;
+      font-weight: 300;
+    }
+  }
+
+  // Sección Principal "Quiénes Somos"
+  .main-about-section {
+    padding: 60px 0;
+    background-color: $white-color;
+
+    .main-about-content {
+      display: flex;
+      align-items: center;
+      gap: 50px;
+    }
+
+    .main-about-image-column {
+      flex: 0 0 40%; // La imagen ocupa el 40%
+      img {
+        width: 100%;
+        height: auto;
+        border-radius: $border-radius-std;
+        box-shadow: 0 6px 20px rgba(0,0,0,0.12);
+      }
+    }
+
+    .main-about-text-column {
+      flex: 1; // El texto ocupa el resto
+      .pre-title {
+        font-size: 0.9rem;
+        color: $primary-blue;
+        font-weight: 600;
+        text-transform: uppercase;
+        margin-bottom: 8px;
+      }
+      h2 {
+        font-size: 2.2rem;
+        color: $dark-text-color;
+        margin-top: 0;
+        margin-bottom: 20px;
+        font-weight: 700;
+      }
+      p {
+        font-size: 1rem;
+        line-height: 1.7;
+        margin-bottom: 15px;
+        &:last-of-type {
+          margin-bottom: 0;
+        }
+      }
+    }
+  }
+
+  // Sección de Valores
+  .values-section {
+    padding: 60px 0;
+    background-color: $section-bg-light;
+    text-align: center;
+
+    h2 {
+      font-size: 2.2rem;
+      color: $dark-text-color;
+      margin-bottom: 40px;
+      font-weight: 700;
+    }
+
+    .values-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 30px;
+    }
+
+    .value-item {
+      background-color: $white-color;
+      padding: 30px;
+      border-radius: $border-radius-std;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+      
+      .value-icon {
+        font-size: 2.5rem; // Ajusta si usas iconos de fuente
+        color: $primary-blue;
+        margin-bottom: 15px;
+        // Para <img> o <svg>, ajusta su tamaño aquí
+      }
+      h3 {
+        font-size: 1.3rem;
+        color: $dark-text-color;
+        margin-top: 0;
+        margin-bottom: 10px;
+        font-weight: 600;
+      }
+      p {
+        font-size: 0.95rem;
+        line-height: 1.6;
+      }
+    }
+  }
+  
+  // Sección Misión y Visión
+  .mission-vision-section {
+    padding: 60px 0;
+    background-color: $white-color;
+
+    .mv-content {
+      display: flex;
+      gap: 40px;
+    }
+
+    .mv-item {
+      flex: 1;
+      background-color: $section-bg-light; // Fondo claro para destacar cada item
+      padding: 30px;
+      border-radius: $border-radius-std;
+
+      h3 {
+        font-size: 1.5rem;
+        color: $primary-blue;
+        margin-top: 0;
+        margin-bottom: 15px;
+        font-weight: 600;
+      }
+      p {
+        font-size: 1rem;
+        line-height: 1.7;
+      }
+    }
+  }
+
+  // Sección CTA Final
+  .about-cta-section {
+    padding: 50px 20px;
+    background-color: $primary-blue;
+    color: $white-color;
+    text-align: center;
+
+    h2 {
+      font-size: 2rem;
+      margin-top: 0;
+      margin-bottom: 15px;
+      font-weight: 700;
+    }
+    p {
+      font-size: 1.1rem;
+      margin-bottom: 25px;
+      opacity: 0.9;
+    }
+    .primary-cta { // Reutilizando el estilo del botón primario
+      background-color: $white-color;
+      color: $primary-blue;
+      padding: 12px 30px;
+      border-radius: 50px; // Píldora para consistencia
+      font-weight: bold;
+      text-decoration: none;
+      font-size: 1rem;
+      transition: all 0.3s ease;
+      border: 2px solid $white-color;
+      display: inline-block;
+
+      &:hover {
+        background-color: transparent;
+        color: $white-color;
+      }
+    }
+  }
+
+  // Responsividad general
+  @media (max-width: 768px) {
+    .main-about-section .main-about-content,
+    .mission-vision-section .mv-content {
+      flex-direction: column;
+      text-align: center;
+    }
+    .main-about-image-column {
+      margin-bottom: 30px;
+      order: -1; // Mueve la imagen arriba en móvil si se desea
+    }
+    .mission-vision-section .mv-item {
+      margin-bottom: 20px;
+      &:last-child {
+        margin-bottom: 0;
+      }
+    }
+  }
+}
