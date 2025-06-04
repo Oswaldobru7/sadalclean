@@ -109,7 +109,7 @@ $hero-button-text-color: white;
   @media (max-width: 768px) {
     padding-top: 60px;
     min-height: auto; 
-
+   
     .hero-text {
       padding: 15px;
       text-align: center; 
@@ -121,6 +121,12 @@ $hero-button-text-color: white;
       p {
         font-size: 1rem;
       }
+    }
+    .services-cards {
+      display: grid;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 30px;
     }
     .container.hero-content-container {
       padding-bottom: 80px; 
@@ -314,7 +320,7 @@ $dark-text-color: #333;
 $card-text-color: white;        
 $montserrat-font: 'Montserrat', sans-serif;
 $card-border-radius: 10px;
-$light-grey-bg: #f8f9fa;      
+$light-grey-bg: white;      
 
 .services-overview {
   padding: 50px 20px;
@@ -335,8 +341,6 @@ $light-grey-bg: #f8f9fa;
   flex-wrap: wrap;
   justify-content: center;
   gap: 30px;
-  max-width: 1200px; 
-  margin: 0 auto;
 }
 
 .service-card-new {
