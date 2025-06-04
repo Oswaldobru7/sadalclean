@@ -5,7 +5,7 @@
         "headers": [
           {
             "key": "Content-Security-Policy",
-            "value": "default-src 'self'; script-src 'self' https://cdn.tailwindcss.com https://www.gstatic.com/firebasejs/ /* Añade hashes para scripts inline aquí si es posible, ej: 'sha256-XYZ...' */; style-src 'self' 'unsafe-inline' https://cdn.tailwindcss.com https://fonts.googleapis.com; img-src 'self' data: https://placehold.co https://*.googleusercontent.com; font-src 'self' https://fonts.gstatic.com; connect-src 'self' https://*.googleapis.com https://www.googleapis.com https://securetoken.googleapis.com https://generativelanguage.googleapis.com https://firestore.googleapis.com; object-src 'none'; frame-ancestors 'self';"
+            "value": "default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://cdn.tailwindcss.com https://www.gstatic.com/firebasejs/; style-src 'self' 'unsafe-inline' https://cdn.tailwindcss.com https://fonts.googleapis.com; img-src 'self' data: https://placehold.co https://*.googleusercontent.com; font-src 'self' https://fonts.gstatic.com; connect-src 'self' https://*.googleapis.com https://www.googleapis.com https://securetoken.googleapis.com https://generativelanguage.googleapis.com https://firestore.googleapis.com; frame-src 'self';"
           },
           {
             "key": "Referrer-Policy",
@@ -17,7 +17,7 @@
           },
           {
             "key": "X-Frame-Options",
-            "value": "SAMEORIGIN" 
+            "value": "SAMEORIGIN"
           },
           {
             "key": "Permissions-Policy",
@@ -31,3 +31,4 @@
       }
     ]
   }
+  
